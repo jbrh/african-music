@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title> African Music</title>
+
+  
+
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/0.5.0/sweet-alert.css"> 
+
+  <link type="text/css" rel="stylesheet" href="css/jquery.qtip.css" />
+
+
+  <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/0.5.0/sweet-alert.min.js"></script> 
+
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  
+  <script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.js'></script><!--this version appears to be necessary for the drag and drop-->
+
+  
+
+  <script type='text/javascript' src="scripts/jquery.imagemapster.1.2.4.040.js"></script>
+
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+<!-- from http://code.jquery.com/ -->
+
+<script type="text/javascript" src="js/jquery.qtip.js"></script>
+
+<script type="text/javascript" src="js/jquery.imagesloaded.pkg.min.js"></script>
+    
+  
+    
+  <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+
+  <style>
+
+body {
+    background-color: #c9953c;
+    background-image: url(http://www.transparenttextures.com/patterns/squairy.png);
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+div#littleimages { 
+     width: 370px;
+     float: right;  
+     z-index: 30;
+}
+
+.sweet-alert{
+    background-color: #BCF1ED;
+    width: 350px;
+    margin-left: -150px;
+    /*height: 100px;*/
+}
+
+.sweet-alert h2 {
+    color: #0198E1;
+}
+
+#counterCorrect{
+    font-size:20px;
+    width:28px;
+    height:27px;
+    padding-top:4px;
+    padding-left:5px;
+    margin-right:10px;
+    background-color:green;
+    float:left;
+}
+
+#wordCorrect {
+    border:0px;
+    padding-top:0px;
+    margin-right:40px;
+    float:left;
+}
+
+#counterWrong{
+    font-size:20px;
+    width:28px;
+    height:27px;
+    padding-top:4px;
+    padding-left:5px;
+    margin-right:10px;
+    background-color:red;
+    float:left;
+}
+
+#wordWrong {
+    border:0px;
+    padding-top:0px;
+    float:left;
+}
+
+.tooltiplinks{
+color:green;
+font-size:18px;
+}
+
+.flagimages {
+    width:75px;
+    margin-top: -10px;
+    float:right;
+}
+
+.youtubevideos {
+    width:200px;
+    padding-top:10px;
+    padding-left: 30px;
+}
+
+#banner {
+    font-size:24px; 
+}
+
+#imagemap{
+}
+
+.tooltip-content {
+    display: none; /*need display: none; in order that content not shown below image*/
+}
+
+.myCustomClass {
+    border-color: black;
+    background-color: #F5CA0A;
+}
+
+    
+</style>
+
+  
+
+
+<script type='text/javascript'>
+
+window.correct = []
+window.countryname = []
+
+$(window).load(function(){
+$(document).ready(function() {
+    var img = $('#africa');
+    
+    //var countryname = []
+    window.countryname[0] = $('#morocco1');
+    window.countryname[1] = $('#algeria');
+    window.countryname[2] = $('#tunisia');
+    window.countryname[3] = $('#libya');
+    window.countryname[4] = $('#egypt');
+    window.countryname[5] = $('#sudan');
+    window.countryname[6] = $('#ethiopia');
+    window.countryname[7] = $('#eritrea');
+    window.countryname[8] = $('#dijibouti');
+    window.countryname[9] = $('#somalia');
+    window.countryname[10] = $('#kenya');
+    window.countryname[11] = $('#uganda');
+    window.countryname[12] = $('#rwanda');
+    window.countryname[13] = $('#burundi');
+    window.countryname[14] = $('#drc');
+    window.countryname[15] = $('#car');
+    window.countryname[16] = $('#cameroon');
+    window.countryname[17] = $('#chad');
+    window.countryname[18] = $('#niger');
+    window.countryname[19] = $('#mali');
+    window.countryname[20] = $('#mauritania');
+    window.countryname[21] = $('#senegal');
+    window.countryname[22] = $('#gambia');
+    window.countryname[23] = $('#guineabissau');
+    window.countryname[24] = $('#guinea');
+    window.countryname[25] = $('#sierraleone');
+    window.countryname[26] = $('#liberia');
+    window.countryname[27] = $('#ivorycoast');
+    window.countryname[28] = $('#ghana');
+    window.countryname[29] = $('#burkinafaso');
+    window.countryname[30] = $('#togo');
+    window.countryname[31] = $('#benin');
+    window.countryname[32] = $('#nigeria');
+    window.countryname[33] = $('#equiguinea');
+    window.countryname[34] = $('#gabon');
+    window.countryname[35] = $('#congo');
+    window.countryname[36] = $('#angola');
+    window.countryname[37] = $('#namibia');
+    window.countryname[38] = $('#botswana');
+    window.countryname[39] = $('#zimbabwe');
+    window.countryname[40] = $('#zambia');
+    window.countryname[41] = $('#southafrica');
+    window.countryname[42] = $('#swaziland');
+    window.countryname[43] = $('#lesotho');
+    window.countryname[44] = $('#mozambique');
+    window.countryname[45] = $('#malawi');
+    window.countryname[46] = $('#madagascar');
+    window.countryname[47] = $('#tanzania');
+    window.countryname[48] = $('#westernsahara');
+    window.countryname[49] = $('#gabon');
+    /* JQuery uses # to select an element by ID*/
+
+    img.mapster({
+        mapKey: 'name',
+        fade: false,
+        singleSelect: false,
+        stroke: true,
+        strokeWidth: 3,
+        strokeColor: '00cc00', 
+        fillOpacity: 0.6,
+        fillColor: 'ff0000',   
+        onConfigured: function() {
+            img.siblings().css('z-index', 0);
+            img.css('z-index', 10);
+
+        }
+
+    });
+     
+    for (i = 0; i < 50; i++){
+        window.countryname[i].css('z-index', 5).draggable({
+            drag: function() {
+                $(this).css('z-index', 5)
+            }
+        });
+    }
+
+    
+    
+    img.droppable({
+        drop: function(e, ui) {
+            var landing = img.mapster('highlight');
+         
+            
+            $(ui.draggable).css('z-index', 20);
+            temp = ui.draggable.attr('id') + 'map'
+            if (temp == landing) {
+                // correct choice then push this country into the correct-choices array
+                window.correct.push(landing)
+                // tell them so
+                //alert("You are correct!!!");
+                // select it as red
+                img.mapster('set',true, landing);
+                // If user selected incorrect countries previously, unselect
+                for (i = 0; i < window.countryname.length; i++){
+                    // go through list of countries (#algeria --> algeria --> algeriamap)
+                    keyname = window.countryname[i].selector.replace("#","")+'map'
+                    // for each country, check if it is in the array, this function
+                    // returns a -1 if it isn't in the array, so any return <0 means
+                    // the country wasn't a correct choice previously
+                    if (window.correct.indexOf(keyname)<0){
+                        // set the country to not-colored
+                        img.mapster('set', false, keyname)
+                    }
+
+                    
+                }
+                img.mapster('snapshot')     
+                $(ui.draggable).css('z-index', 5).draggable({ cancel: ".special" }); 
+
+                $( this )
+                        .addClass( "ui-state-highlight" )
+                        .find( "p" )
+                    $('#counterCorrect').html(function(i, val) {
+                     return val * 1 + 1
+                    });
+                //ui.draggable.attr('id').
+                swal({   
+                    title: "Yay! You are correct :)", 
+                    imageUrl: "http://www.animateit.net/data/media/192/acc004.gif", 
+                    timer: 2000,   
+                    showConfirmButton: false });
+            }  
+            else if (landing) {
+                for (i = 0; i < window.countryname.length; i++){
+                $( this )
+                        .addClass( "ui-state-highlight" )
+                        .find( "p" )
+                    $('#counterWrong').html(function(i, val) {
+                      x = +val+.02
+                      return Math.round (x *1000)/1000
+                      /*why does this work?  without this it returned a 16 place decimal -- from http://www.jacklmoore.com/notes/rounding-in-javascript/*/
+                    });
+                }
+                swal({   
+                    title: "Nope, please try again :)",
+                    imageUrl: "http://www.animateit.net/data/media/192/acc012.gif",  
+                    timer: 2000,   
+                    showConfirmButton: false });
+                /*http://t4t5.github.io/sweetalert/*/
+                
+                
+            }
+
+        }
+    });
+    
+});
+});//]]>  
+
+</script>
+
+<script type="text/javascript">
+
+$(document).ready(function () {
+    // MAKE SURE YOUR SELECTOR MATCHES SOMETHING IN YOUR HTML!!!
+    $('area[alt]').each(function () {
+        var elem = $(this),
+            map = elem.parent(),
+            image = $('img[usemap="#'+map.attr('name')+'"]');
+        
+        elem.qtip({
+            content: {
+                text: $('#africamap-' + elem.attr('alt')), // Attempt to grab content from #statesMap-<State> elements first
+                button: true,
+                attr: 'alt' // No content? Grab the content from the 'alt' attribute
+            },
+            position: {
+                target: 'mouse',//tooltip generated at mouse on doubleclick
+                adjust: {
+                    mouse: false//once generated, tooltip does not move with mouse -- stays in place
+                }
+            },
+            show: {
+                event: 'dblclick',
+                solo: true,
+                effect: function(offset) {
+                    $(this).slideDown(300);}
+            },
+            hide: {
+                // Allow the user to hover on the tooltip
+                event: false,
+                /*fixed: false,
+                delay: 2000*/
+            },
+            style: {
+                classes: 'myCustomClass'
+            }
+        });
+    });
+});
+</script>
+
+
+</head>
+<body>
+<div style="float:left;font-size:24px;height:60px;">
+    <div style="top: 10px;float:left"><p><h2>Learn About African Countries and Their Musical Traditions</h2></p></div>
+<br></br>
+<br><br>
+
+<img id="africa" src="images/africa.jpg" usemap="#africa" style="z-index:0;opacity:0.8" /></div>
+
+<div id="littleimages">
+    <br></br>
+
+
+    <p><h3>Drag each country name to where you believe it belongs on the map to the left, then let go of the cursor.  An alert will appear to let you know if your were correct of incorrect. If your placement was wrong, the light red highlight will disappear and you may continue to move the country name.  If your placement is correct, the highlight will turn to a darker red and the country name will remain fixed in position.  If you accidently click on a country, just click again and its color will go back to white. See if you can correctly place the 49 African countries!  Double click on any country and a tooltip will appear to give you some options to learn more about the music and the country!</h3></p>
+    <p><h3>Double click on any country and a tooltip will appear to give you some options to learn more about the music and the country!</h3></p>
+    <br>
+<div id="counterCorrect">
+</div>
+<div id="wordCorrect"><p>Correct</p>
+</div>
+
+<div id="counterWrong">
+</div>
+<div id="wordWrong"><p>Incorrect</p>
+</div>
+
+<!--</div><div id="counterwrong"><p>Incorrect</p></div>-->
+
+<br></br>
+<br>
+<p><img src="images/algeria.png" id="algeria" style="z-index: 5;"><img src="images/angola.png" id="angola" style="z-index: 5;"><img src="images/benin.png" id="benin" style="z-index: 5;"><mg src="images/morocco.png" id="morocco" style="z-index: 5;"><img src="images/botswana.png" id="botswana" style="z-index: 5;"></p>
+
+<p><img src="images/burkinafaso.png" id="burkinafaso" style="z-index: 5;"><img src="images/burundi.png" id="burundi" style="z-index: 5;"><img src="images/car.png" id="car" style="z-index: 5;"><img src="images/cameroon.png" id="cameroon" style="z-index: 5;"></p>
+
+<p><img src="images/chad.png" id="chad" style="z-index: 5;"><img src="images/congo.png" id="congo" style="z-index: 5;"><img src="images/drc.png" id="drc" style="z-index: 5;"><img src="images/dijibouti.png" id="dijibouti" style="z-index: 5;"><img src="images/egypt.png" id="egypt" style="z-index: 5;"></p>
+
+<p><img src="images/equiguinea.png" id="equiguinea" style="z-index: 5;"><img src="images/eritrea.png" id="eritrea" style="z-index: 5;"><img src="images/ethiopia.png" id="ethiopia" style="z-index: 5;"><img src="images/gabon.png" id="gabon" style="z-index: 5;"><img src="images/gambia.png" id="gambia" style="z-index: 5;"></p>
+
+<p><img src="images/ghana.png" id="ghana" style="z-index: 5;"><img src="images/guinea.png" id="guinea" style="z-index: 5;"><img src="images/guineabissau.png" id="guineabissau" style="z-index: 5;"><img src="images/ivorycoast.png" id="ivorycoast" style="z-index: 5;"></p>
+
+<p><img src="images/kenya.png" id="kenya" style="z-index: 5;"><img src="images/lesotho.png" id="lesotho" style="z-index: 5;"><img src="images/liberia.png" id="liberia" style="z-index: 5;"><img src="images/libya.png" id="libya" style="z-index: 5;"><img src="images/madagascar.png" id="madagascar" style="z-index: 5;"></p>
+
+<p><img src="images/malawi.png" id="malawi" style="z-index: 5;"><img src="images/mali.png" id="mali" style="z-index: 5;"><img src="images/mauritania.png" id="mauritania" style="z-index: 5;"><img src="images/morocco1.png" id="morocco1" style="z-index: 5;"></p>
+
+<p><img src="images/mozambique.png" id="mozambique" style="z-index: 5;"><img src="images/namibia.png" id="namibia" style="z-index: 5;"><img src="images/niger.png" id="niger" style="z-index: 5;"><img src="images/nigeria.png" id="nigeria" style="z-index: 5;"><img src="images/rwanda.png" id="rwanda" style="z-index: 5;"></p>
+
+<p><img src="images/senegal.png" id="senegal" style="z-index: 5;"><img src="images/sierraleone.png" id="sierraleone" style="z-index: 5;"><img src="images/somalia.png" id="somalia" style="z-index: 5;"><img src="images/southafrica.png" id="southafrica" style="z-index: 5;"></p>
+
+<p><img src="images/sudan.png" id="sudan" style="z-index: 5;"><img src="images/swaziland.png" id="swaziland" style="z-index: 5;"><img src="images/tanzania.png" id="tanzania" style="z-index: 5;"><img src="images/togo.png" id="togo" style="z-index: 5;"><img src="images/tunisia.png" id="tunisia" style="z-index: 5;"></p>
+
+<p><img src="images/uganda.png" id="uganda" style="z-index: 5;"><img src="images/westernsahara.png" id="westernsahara" style="z-index: 5;"><img src="images/zambia.png" id="zambia" style="z-index: 5;"><img src="images/zimbabwe.png" id="zimbabwe" style="z-index: 5;"></p>
+
+<br>
+
+    <img src="images/smallpanafricanflag.png" style="z-index: 1000;">
+    <p> Pan African flag inspired the colors of this page!</p>
+
+</div>
+
+<div style="clear:both; "></div>
+
+<div id="imagemap">
+
+<map id="africa_map" name="africa">
+
+    <area shape="poly" alt="morocco" name="morocco1map" coords="103, 306, 113, 305, 124, 305, 138, 306, 144, 306, 148, 295, 157, 289, 170, 284, 183, 281, 196, 271, 205, 269, 205, 261, 212, 260, 220, 256, 232, 255, 229, 246, 229, 232, 229, 225, 219, 225, 210, 225, 206, 229, 201, 225, 197, 218, 190, 222, 184, 227, 182, 234, 174, 241, 163, 244, 155, 250, 152, 258, 146, 262, 144, 269, 143, 278, 138, 284, 129, 292, 121, 297" href="#" />
+    <area shape="poly" alt="algeria" name="algeriamap" coords="230, 224, 230, 233, 228, 242, 233, 248, 231, 255, 223, 255, 214, 260, 205, 262, 203, 269, 194, 272, 186, 278, 177, 281, 165, 284, 153, 290, 148, 301, 145, 312, 165, 325, 239, 383, 245, 386, 248, 389, 259, 394, 263, 403, 280, 402, 289, 396, 357, 355, 352, 347, 346, 346, 340, 339, 335, 329, 331, 325, 336, 313, 336, 295, 334, 285, 335, 276, 333, 262, 327, 256, 327, 249, 320, 241, 326, 231, 329, 222, 332, 208, 322, 207, 310, 207, 306, 211, 293, 207, 282, 207, 275, 209, 267, 211, 258, 212, 253, 216, 242, 219, 237, 223" href="#" />
+    <area shape="poly" alt="tunisia" alt="tunisia" name="tunisiamap" coords="344, 204, 335, 206, 331, 214, 332, 225, 327, 233, 320, 240, 325, 249, 329, 259, 335, 266, 335, 280, 342, 274, 343, 265, 352, 261, 354, 252, 354, 244, 346, 245, 345, 237, 350, 233, 355, 227, 351, 219, 351, 216, 358, 209, 351, 209" href="#" />
+    <area shape="poly" alt="libya" name="libyamap" coords="358, 250, 358, 257, 351, 260, 344, 265, 344, 274, 337, 281, 334, 285, 337, 292, 339, 304, 337, 317, 331, 324, 339, 339, 343, 344, 348, 344, 355, 345, 356, 353, 381, 355, 385, 361, 401, 356, 488, 399, 489, 393, 498, 393, 498, 385, 498, 374, 500, 359, 497, 336, 497, 318, 496, 299, 492, 289, 491, 279, 491, 270, 496, 264, 481, 260, 472, 254, 461, 254, 450, 257, 443, 262, 445, 271, 443, 278, 434, 280, 424, 276, 417, 271, 407, 271, 399, 265, 395, 257, 386, 254, 376, 254, 365, 251" href="#" />
+    <area shape="poly" alt="egypt" name="egyptmap" coords="496, 265, 495, 274, 491, 283, 494, 291, 497, 303, 497, 317, 496, 335, 499, 344, 499, 360, 499, 370, 565, 370, 568, 369, 571, 370, 586, 371, 592, 376, 598, 369, 607, 362, 612, 359, 608, 354, 611, 348, 606, 345, 588, 311, 580, 302, 574, 292, 574, 284, 580, 292, 587, 302, 595, 307, 595, 296, 595, 288, 589, 277, 587, 269, 577, 272, 571, 271, 568, 274, 562, 267, 552, 267, 547, 272, 540, 275, 531, 271, 524, 271, 508, 267" href="#" />
+    <area shape="poly" alt="sudan" name="sudanmap" coords="499, 372, 501, 390, 491, 393, 488, 402, 488, 419, 490, 428, 490, 439, 479, 440, 476, 448, 472, 457, 466, 475, 471, 477, 476, 492, 479, 500, 485, 511, 484, 519, 501, 530, 519, 549, 537, 569, 541, 571, 550, 571, 556, 568, 564, 576, 570, 582, 582, 579, 590, 581, 601, 577, 610, 571, 620, 570, 624, 569, 624, 561, 616, 555, 611, 546, 602, 535, 591, 535, 599, 526, 606, 526, 606, 498, 612, 498, 624, 474, 629, 461, 630, 437, 632, 429, 648, 419, 635, 409, 631, 387, 631, 382, 629, 374, 613, 360, 606, 365, 599, 371, 596, 375, 579, 373, 568, 369, 546, 371" href="#" />
+    <area shape="poly" alt="westernsahara" name="westernsaharamap" coords="103, 306, 116, 306, 131, 306, 145, 306, 145, 315, 144, 324, 128, 324, 111, 324, 107, 339, 104, 350, 98, 354, 92, 356, 90, 366, 89, 374, 71, 375, 57, 375, 46, 378, 48, 368, 62, 353, 71, 340, 81, 327, 95, 316" href="#" />
+    <area shape="poly" alt="ethiopia" name="ethiopiamap" coords="630, 459, 629, 469, 625, 474, 616, 484, 614, 497, 608, 499, 605, 514, 608, 526, 597, 526, 594, 532, 604, 538, 614, 547, 617, 558, 626, 560, 627, 572, 640, 572, 649, 580, 660, 581, 668, 581, 679, 575, 689, 575, 695, 577, 707, 570, 719, 566, 729, 566, 762, 531, 750, 529, 740, 526, 725, 522, 716, 515, 708, 509, 703, 498, 694, 498, 691, 494, 692, 485, 692, 478, 684, 470, 675, 462, 666, 460, 654, 458, 643, 452, 643, 462, 636, 459" href="#" />
+    <area shape="poly" alt="eritrea" name="eritreamap" coords="648, 416, 643, 423, 635, 427, 633, 435, 630, 446, 630, 455, 630, 459, 635, 458, 639, 463, 643, 454, 650, 457, 658, 457, 666, 457, 675, 462, 684, 471, 686, 474, 694, 481, 700, 476, 696, 470, 686, 462, 678, 455, 669, 454, 666, 447, 660, 442, 658, 432" href="#" />
+    <area shape="poly" alt="dijobouti" name="dijiboutimap" coords="703, 476, 697, 479, 693, 486, 690, 494, 693, 499, 703, 496, 708, 491, 702, 488, 706, 485" href="#" />
+    <area shape="poly" alt="somalia" name="somaliamap" coords="707, 493, 703, 499, 706, 510, 712, 512, 720, 519, 732, 524, 744, 527, 752, 529, 759, 529, 756, 539, 739, 556, 733, 562, 716, 566, 704, 572, 697, 578, 688, 589, 686, 600, 686, 614, 685, 624, 685, 636, 690, 641, 700, 632, 706, 621, 715, 613, 726, 602, 740, 596, 754, 582, 759, 573, 762, 564, 773, 557, 773, 549, 776, 542, 778, 536, 784, 528, 793, 512, 789, 508, 792, 501, 793, 490, 786, 488, 777, 494, 767, 494, 760, 498, 749, 499, 739, 499, 732, 503, 724, 503, 715, 501" href="#" />
+    <area shape="poly" alt="kenya" name="kenyamap" coords="626, 572, 614, 572, 606, 577, 612, 586, 618, 596, 617, 603, 611, 612, 605, 622, 607, 627, 607, 633, 617, 639, 644, 655, 648, 658, 650, 663, 664, 674, 672, 662, 677, 658, 678, 648, 684, 650, 691, 642, 685, 635, 686, 623, 684, 609, 684, 598, 684, 592, 694, 580, 685, 578, 677, 577, 670, 581, 663, 583, 654, 582, 646, 575, 636, 570, 632, 570, 631, 582, 635, 591, 631, 593, 625, 584" href="#" />
+    <area shape="poly" alt="uganda" name="ugandamap" coords="571, 581, 567, 587, 571, 592, 574, 597, 574, 603, 566, 609, 559, 617, 559, 622, 557, 630, 557, 635, 566, 633, 575, 633, 579, 628, 583, 623, 590, 621, 595, 620, 601, 620, 610, 614, 614, 604, 616, 596, 613, 588, 610, 580, 605, 576, 599, 578, 585, 580, 578, 579" href="#" />
+    <area shape="poly" alt="rwanda" name="rwandamap" coords="565, 634, 561, 639, 556, 638, 552, 643, 548, 647, 550, 653, 556, 653, 562, 650, 567, 647, 568, 641" href="#" />
+    <area shape="poly" alt="burundi" name="burundimap" coords="567, 650, 558, 653, 550, 654, 552, 661, 554, 667, 557, 674, 564, 666, 568, 658" href="#" />
+    <area shape="poly" alt="drc" name="drcmap" coords="357, 693, 366, 691, 376, 691, 390, 691, 401, 691, 406, 694, 407, 706, 415, 715, 427, 715, 435, 714, 437, 704, 446, 701, 452, 701, 455, 706, 464, 708, 464, 720, 467, 733, 468, 746, 467, 751, 480, 749, 493, 748, 497, 753, 503, 752, 514, 757, 522, 755, 530, 758, 538, 764, 545, 771, 552, 771, 552, 763, 545, 763, 541, 754, 545, 745, 545, 738, 544, 729, 548, 720, 564, 714, 559, 708, 553, 701, 549, 692, 549, 685, 546, 679, 546, 672, 551, 657, 549, 650, 553, 642, 556, 635, 556, 625, 557, 618, 562, 610, 564, 602, 570, 596, 569, 586, 568, 578, 560, 574, 552, 572, 544, 570, 538, 574, 532, 564, 521, 566, 514, 564, 507, 564, 499, 564, 491, 567, 479, 568, 474, 573, 461, 573, 454, 572, 444, 564, 438, 564, 433, 571, 430, 578, 431, 587, 424, 595, 422, 601, 422, 607, 422, 618, 421, 627, 411, 633, 407, 639, 403, 648, 403, 658, 396, 667, 389, 673, 382, 677, 376, 673, 369, 679, 364, 679" href="#" />
+    <area shape="poly" alt="car" name="carmap" coords="474, 495, 465, 498, 463, 504, 458, 513, 451, 516, 442, 517, 432, 520, 432, 526, 429, 529, 420, 530, 413, 534, 405, 533, 399, 537, 391, 537, 387, 547, 382, 559, 382, 565, 384, 575, 389, 579, 400, 590, 429, 580, 432, 572, 434, 564, 444, 561, 447, 565, 453, 571, 464, 571, 469, 572, 479, 566, 489, 566, 497, 563, 511, 564, 517, 559, 524, 565, 533, 562, 514, 546, 502, 533, 497, 529, 485, 523, 485, 511" href="#" />
+    <area shape="poly" alt="cameroon" name="cameroonmap" coords="313, 571, 315, 561, 320, 555, 327, 545, 336, 544, 342, 549, 348, 546, 355, 531, 361, 523, 363, 512, 368, 502, 372, 497, 381, 489, 378, 480, 386, 478, 386, 486, 386, 493, 390, 505, 382, 509, 377, 513, 377, 517, 383, 522, 386, 525, 391, 532, 391, 540, 384, 549, 381, 557, 381, 564, 384, 574, 389, 581, 396, 587, 401, 592, 400, 604, 379, 599, 365, 599, 354, 596, 348, 598, 338, 598, 327, 600, 327, 592, 329, 586, 324, 577, 316, 577" href="#" />
+    <area shape="poly" alt="chad" name="chadmap" coords="391, 360, 389, 371, 389, 378, 392, 383, 401, 390, 397, 398, 394, 409, 394, 421, 394, 427, 387, 437, 379, 445, 374, 451, 371, 460, 376, 463, 380, 467, 390, 468, 393, 469, 390, 475, 382, 479, 384, 489, 388, 495, 392, 507, 382, 510, 379, 514, 383, 521, 389, 527, 391, 536, 401, 536, 411, 534, 420, 531, 429, 528, 435, 526, 434, 520, 446, 517, 454, 514, 460, 506, 464, 500, 476, 496, 469, 478, 462, 478, 469, 466, 469, 459, 474, 451, 477, 443, 489, 441, 489, 424, 487, 418, 487, 400, 401, 358, 394, 359, 392, 364" href="#" />
+    <area shape="poly" alt="niger" name="nigermap" coords="356, 357, 338, 367, 327, 375, 311, 384, 299, 392, 293, 397, 270, 405, 269, 415, 269, 424, 269, 436, 262, 444, 248, 444, 238, 445, 234, 451, 223, 452, 224, 462, 229, 471, 235, 478, 244, 479, 245, 481, 250, 481, 258, 485, 261, 477, 266, 472, 272, 468, 286, 464, 294, 469, 297, 472, 306, 470, 317, 474, 324, 475, 334, 469, 344, 469, 350, 469, 356, 474, 369, 463, 372, 454, 377, 443, 384, 439, 390, 430, 392, 417, 394, 405, 397, 395, 401, 388, 391, 383, 391, 376, 390, 362, 381, 356, 370, 356" href="#" />
+    <area shape="poly" alt="mali" name="malimap" coords="178, 336, 163, 336, 162, 345, 162, 355, 161, 363, 161, 388, 158, 397, 158, 407, 158, 420, 159, 432, 164, 436, 162, 442, 127, 443, 113, 444, 103, 449, 97, 441, 88, 451, 89, 463, 92, 472, 93, 482, 100, 482, 107, 482, 119, 478, 122, 489, 124, 497, 127, 505, 133, 500, 137, 504, 147, 499, 152, 503, 159, 502, 159, 493, 166, 485, 170, 482, 175, 470, 181, 469, 190, 465, 203, 458, 214, 452, 225, 450, 229, 450, 239, 445, 259, 445, 266, 438, 270, 410, 270, 405, 259, 405, 251, 391, 258, 395, 246, 388, 239, 382" href="#" />
+    <area shape="poly" alt="mauritania" name="mauritaniamap" coords="47, 378, 51, 388, 51, 394, 45, 396, 51, 405, 49, 412, 45, 421, 41, 434, 50, 432, 62, 431, 70, 436, 76, 442, 84, 452, 91, 444, 95, 438, 100, 449, 111, 444, 121, 444, 159, 445, 164, 439, 161, 434, 159, 420, 161, 412, 158, 400, 161, 384, 160, 367, 161, 354, 163, 336, 179, 336, 146, 312, 145, 324, 110, 325, 106, 347, 100, 351, 91, 355, 91, 362, 87, 373" href="#" />
+    <area shape="poly" alt="senegal" name="senegalmap" coords="44, 433, 41, 441, 29, 450, 34, 457, 38, 464, 56, 461, 66, 466, 61, 470, 52, 469, 40, 471, 34, 474, 34, 481, 52, 476, 69, 476, 77, 477, 83, 480, 91, 480, 90, 472, 88, 454, 81, 445, 74, 439, 68, 435, 62, 432, 52, 432" href="#" />
+    <area shape="poly" alt="gambia" name="gambiamap" coords="36, 465, 43, 465, 53, 461, 65, 465, 65, 470, 53, 469, 45, 471, 34, 473" href="#" />
+    <area shape="poly" alt="guineabissau" name="guineabissaumap" coords="33, 480, 40, 478, 46, 477, 59, 477, 68, 475, 65, 482, 65, 486, 56, 491, 52, 498, 46, 493, 46, 486" href="#" />
+    <area shape="poly" alt="guinea" name="guineamap" coords="49, 496, 54, 490, 64, 488, 64, 482, 67, 476, 77, 479, 84, 479, 91, 479, 91, 486, 99, 482, 109, 482, 119, 477, 122, 489, 124, 496, 128, 503, 124, 511, 129, 517, 127, 521, 131, 525, 123, 527, 124, 532, 115, 537, 111, 531, 108, 526, 100, 526, 99, 517, 95, 511, 88, 509, 82, 509, 76, 512, 69, 518" href="#" />
+    <area shape="poly" alt="sierraleone" name="sierraleonemap" coords="69, 516, 74, 516, 78, 508, 86, 507, 92, 507, 98, 514, 100, 520, 99, 526, 95, 533, 87, 541, 77, 540, 73, 535, 70, 526" href="#" />
+    <area shape="poly" alt="liberia" name="liberiamap" coords="88, 541, 93, 537, 97, 532, 99, 527, 109, 525, 112, 532, 112, 538, 121, 536, 121, 546, 129, 553, 133, 559, 129, 570, 121, 570, 112, 565, 100, 556, 94, 551" href="#" />
+    <area shape="poly" alt="ivorycoast" name="ivorycoastmap" coords="131, 572, 132, 555, 126, 549, 123, 537, 127, 530, 126, 525, 133, 525, 129, 516, 129, 506, 133, 503, 137, 504, 147, 499, 153, 504, 159, 504, 163, 509, 170, 509, 179, 508, 187, 513, 190, 526, 186, 532, 182, 542, 181, 552, 186, 559, 182, 562, 170, 561, 158, 561, 149, 564, 142, 568" href="#" />
+    <area shape="poly" alt="ghana" name="ghanamap" coords="183, 564, 184, 555, 181, 548, 184, 539, 192, 529, 189, 516, 186, 502, 188, 496, 198, 496, 204, 498, 216, 496, 221, 504, 224, 511, 224, 522, 223, 530, 223, 540, 229, 551, 226, 556, 218, 556, 209, 563, 200, 564, 195, 569" href="#" />
+    <area shape="poly" alt="burkinafaso" name="burkinafasomap" coords="188, 515, 184, 510, 179, 510, 170, 511, 162, 508, 160, 500, 162, 490, 170, 485, 174, 475, 180, 471, 192, 469, 199, 463, 209, 457, 223, 449, 223, 458, 228, 466, 233, 474, 236, 480, 245, 479, 246, 486, 241, 490, 235, 492, 230, 497, 220, 494, 214, 495, 206, 496, 198, 496, 190, 496, 187, 501, 188, 506" href="#" />
+    <area shape="poly" alt="togo" name="togomap" coords="231, 551, 225, 545, 224, 530, 224, 518, 222, 507, 217, 496, 227, 496, 227, 506, 233, 513, 235, 521, 236, 529, 236, 538, 238, 549" href="#" />
+    <area shape="poly" alt="benin" name="beninmap" coords="238, 548, 236, 542, 236, 533, 237, 522, 235, 511, 228, 504, 230, 496, 237, 490, 242, 490, 247, 481, 254, 481, 259, 487, 261, 497, 259, 506, 254, 512, 249, 521, 249, 530, 248, 539, 248, 547" href="#" />
+    <area shape="poly" alt="nigeria" name="nigeriamap" coords="248, 545, 248, 537, 248, 527, 253, 515, 259, 510, 260, 503, 259, 491, 260, 480, 266, 473, 272, 465, 284, 465, 297, 473, 309, 470, 322, 475, 333, 470, 342, 469, 347, 467, 354, 471, 365, 470, 367, 463, 373, 474, 380, 481, 385, 477, 382, 486, 373, 492, 368, 501, 365, 511, 363, 519, 357, 525, 352, 532, 348, 545, 343, 549, 333, 543, 325, 545, 319, 554, 315, 562, 314, 570, 303, 572, 293, 572, 284, 573, 276, 568, 274, 559, 267, 551, 257, 548" href="#" />
+    <area shape="poly" alt="equiguinea" name="equiguineamap" coords="328, 598, 343, 597, 343, 610, 330, 612, 323, 613" href="#" />
+    <area shape="poly" alt="gabon"name="gabonmap" coords="325, 614, 343, 611, 343, 599, 355, 597, 365, 597, 366, 608, 373, 605, 379, 611, 374, 620, 378, 633, 375, 648, 368, 648, 360, 645, 347, 652, 348, 661, 342, 668, 333, 659, 326, 651, 319, 639, 316, 633, 324, 626" href="#" />
+    <area shape="poly" alt+"congo" name="congomap" coords="341, 667, 350, 662, 348, 654, 360, 643, 365, 650, 376, 650, 376, 641, 377, 636, 376, 621, 379, 614, 376, 608, 367, 607, 367, 596, 377, 596, 397, 603, 397, 589, 427, 581, 428, 588, 422, 598, 420, 612, 419, 624, 419, 630, 412, 635, 407, 639, 402, 648, 401, 656, 397, 665, 388, 675, 383, 678, 378, 673, 371, 675, 366, 675, 356, 676, 355, 681" href="#" />
+    <area shape="poly" alt="angola" name="angolamap" coords="358, 693, 363, 704, 365, 715, 369, 722, 364, 727, 369, 738, 375, 749, 373, 758, 366, 770, 363, 774, 359, 784, 357, 793, 354, 802, 354, 819, 365, 814, 370, 814, 375, 818, 387, 818, 396, 818, 406, 820, 419, 820, 425, 820, 433, 825, 448, 826, 457, 826, 470, 824, 480, 823, 469, 815, 468, 771, 488, 771, 488, 755, 492, 746, 479, 745, 469, 749, 468, 739, 465, 729, 463, 715, 461, 707, 453, 707, 449, 703, 439, 703, 436, 713, 429, 713, 421, 715, 411, 711, 408, 701, 406, 693, 399, 690, 385, 688, 372, 687" href="#" />
+    <area shape="poly" alt="namibia" name="namibiamap" coords="355, 817, 354, 830, 364, 844, 374, 861, 387, 880, 385, 893, 389, 908, 393, 924, 395, 938, 406, 949, 412, 944, 420, 950, 433, 950, 441, 945, 441, 894, 442, 885, 443, 874, 447, 873, 451, 871, 455, 856, 454, 849, 454, 839, 455, 834, 471, 829, 478, 829, 482, 836, 500, 824, 491, 822, 482, 822, 466, 825, 455, 824, 440, 824, 426, 819, 407, 820, 390, 820, 378, 820, 369, 816, 363, 816" href="#" />
+    <area shape="poly" alt="botswana" name="botswanamap" coords="443, 902, 443, 894, 445, 878, 447, 873, 456, 873, 453, 856, 454, 845, 455, 835, 479, 831, 482, 832, 482, 836, 490, 831, 499, 826, 505, 836, 511, 844, 519, 848, 522, 854, 529, 857, 532, 865, 537, 870, 546, 874, 537, 877, 530, 883, 521, 890, 518, 896, 513, 899, 505, 902, 503, 912, 493, 914, 483, 910, 476, 914, 471, 921, 463, 924, 455, 926, 452, 917, 447, 909" href="#" />
+    <area shape="poly" alt="zimbabwe" name="zimbabwemap" coords="502, 826, 507, 836, 511, 845, 515, 850, 527, 857, 532, 868, 543, 874, 553, 874, 561, 874, 569, 882, 571, 873, 578, 863, 586, 852, 585, 843, 588, 832, 588, 823, 585, 814, 578, 809, 572, 807, 559, 806, 553, 801, 545, 804, 540, 812, 533, 819, 523, 825, 517, 825" href="#" />
+    <area shape="poly" alt="zambia" name="zambiamap" coords="468, 771, 468, 808, 478, 821, 491, 821, 499, 825, 510, 825, 521, 825, 527, 816, 533, 812, 538, 811, 543, 803, 552, 800, 557, 800, 557, 794, 591, 783, 589, 776, 591, 768, 596, 765, 596, 752, 599, 748, 595, 738, 593, 731, 571, 721, 567, 723, 563, 718, 548, 722, 545, 729, 545, 735, 545, 743, 542, 754, 542, 759, 547, 760, 553, 762, 554, 767, 551, 772, 542, 768, 535, 764, 525, 759, 517, 759, 509, 757, 502, 751, 492, 748, 491, 770" href="#" />
+    <area shape="poly" alt="southafrica" name="southafricamap" coords="409, 947, 413, 959, 418, 967, 423, 978, 427, 988, 421, 992, 427, 1000, 430, 1009, 439, 1015, 446, 1015, 453, 1011, 468, 1009, 476, 1006, 490, 1010, 496, 1004, 508, 1004, 520, 999, 533, 990, 542, 979, 538, 972, 528, 972, 527, 964, 532, 957, 539, 959, 542, 973, 543, 977, 552, 969, 558, 961, 567, 950, 574, 943, 580, 930, 574, 928, 566, 933, 559, 928, 560, 917, 564, 917, 569, 917, 571, 905, 571, 896, 568, 884, 561, 878, 544, 876, 532, 881, 526, 888, 519, 894, 515, 901, 507, 903, 505, 911, 497, 913, 484, 913, 476, 916, 471, 924, 461, 926, 452, 926, 452, 917, 448, 910, 442, 904, 442, 927, 442, 944, 433, 950, 426, 951, 418, 948" href="#" />
+    <area shape="poly" alt="swaziland" name="swazilandmap" coords="572, 926, 567, 931, 558, 928, 560, 918, 568, 915" href="#" />
+    <area shape="poly" alt="lesotho" name="lesothomap" coords="535, 972, 528, 971, 529, 965, 533, 957, 538, 960, 541, 969" href="#" />
+    <area shape="poly" alt="mozambique" name="mozambiquemap" coords="579, 923, 572, 924, 571, 906, 570, 890, 570, 879, 578, 869, 583, 858, 585, 850, 582, 838, 588, 828, 587, 816, 578, 810, 570, 806, 559, 804, 558, 796, 590, 784, 597, 790, 604, 788, 608, 792, 606, 806, 612, 815, 616, 807, 619, 802, 619, 789, 615, 780, 613, 771, 613, 757, 624, 755, 630, 759, 646, 755, 657, 753, 666, 750, 675, 743, 675, 753, 676, 765, 674, 771, 675, 781, 675, 789, 673, 798, 662, 811, 653, 818, 644, 819, 634, 824, 625, 834, 617, 841, 609, 848, 604, 855, 608, 864, 611, 873, 611, 879, 608, 887, 609, 895, 608, 900, 602, 906, 594, 908, 585, 912, 580, 916" href="#" />
+    <area shape="poly" alt="malawi" name="malawimap" coords="595, 732, 598, 740, 597, 746, 595, 754, 596, 763, 591, 771, 588, 780, 596, 789, 602, 788, 607, 791, 607, 799, 604, 805, 607, 810, 613, 815, 615, 807, 621, 802, 621, 795, 619, 787, 614, 787, 609, 783, 608, 774, 602, 766, 606, 760, 607, 754, 604, 742, 603, 733" href="#" />
+    <area shape="poly" alt="madagascar" name="madagascarmap" coords="715, 808, 710, 819, 709, 829, 711, 844, 711, 852, 704, 861, 694, 874, 696, 883, 696, 897, 699, 906, 708, 917, 716, 912, 723, 908, 728, 908, 734, 903, 742, 889, 749, 870, 758, 853, 764, 835, 769, 818, 774, 802, 778, 806, 783, 797, 780, 787, 778, 773, 773, 763, 770, 767, 767, 774, 759, 778, 757, 783, 754, 792, 749, 792, 740, 798, 732, 804, 726, 807" href="#" />
+     <area shape="poly" alt="tanzania" name="tanzaniamap" coords="613, 753, 611, 746, 609, 737, 604, 734, 590, 730, 577, 725, 570, 720, 567, 709, 566, 702, 557, 693, 558, 688, 554, 676, 564, 672, 567, 664, 567, 658, 567, 653, 570, 647, 564, 636, 577, 635, 577, 642, 578, 650, 583, 650, 593, 651, 603, 651, 599, 646, 603, 641, 607, 633, 641, 655, 646, 661, 664, 671, 661, 680, 659, 688, 661, 699, 667, 704, 664, 716, 664, 727, 669, 734, 676, 743, 669, 749, 657, 752, 652, 751, 645, 755, 637, 756, 630, 756, 623, 755" href="#" />
+</map>
+</div>
+
+<script type="text/javascript">
+
+</script>
+
+<div id="africamap-westernsahara" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center; line-height: 20px">Western Sahara</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Western_Sahara">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/westernsahara/index.html">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/62aYDsV2Fx4" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="africamap-morocco" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Morocco</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Morocco" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/morocco/index.html" target="_blank">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/CY5qE36_TtA" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="africamap-algeria" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Algeria</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Algeria" target="_blank">Music</a>&nbsp&nbsp&nbsp
+        <a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/algeria/index.html" target="_blank">NYT Topics</a>
+        
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/nmuhQzndodg?list=PL087B39E4332E8AAE" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="africamap-tunisia" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Tunisia</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Tunisia" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/tunisia/index.html" target="_blank">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/dD9XrCQ5DPk" frameborder="0" allowfullscreen></iframe>
+</div>
+<div id="africamap-libya" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Libya</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Libya" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/libya/index.html" target="_blank">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/f7bxDsXmVZ4" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="africamap-egypt" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Egypt</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Egypt" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/egypt/index.html" target="_blank">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/aDRLf-Q3WtU" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="africamap-sudan" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Sudan</h1>
+
+        <br>
+
+        <a class="tooltiplinks"  href="https://en.wikipedia.org/wiki/Music_of_Sudan" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/sudan/index.html" target="_blank">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/fjp4wEy_TRk?list=PLmUSsosll5B3Jg2HjbAouPoebKf_hiNNm" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="africamap-ethiopia" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+        
+        <h1 style="text-align:center">Ethiopia</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Ethiopia" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/ethiopia/index.html" target="_blank">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/qH7eGKTDD98" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="africamap-eritrea" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Eritrea</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Eritrea" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://en.wikipedia.org/wiki/Eritrea" target="_blank">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/PLfE-FAho6w" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="africamap-dijobouti" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Dijobouti</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Djibouti" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/djibouti/index.html" target="_blank">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/bzYnPKWEajI" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="africamap-somalia" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Somalia</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Somalia" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/somalia/index.html" target="_blank">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/xnjEVEvVW1c" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="africamap-kenya" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Kenya</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Kenya" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/kenya/index.html" target="_blank">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/7bV0gXXW0iI" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="africamap-uganda" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Uganda</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Uganda" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/uganda/index.html" target="_blank">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/363Nv-5oYBA" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="africamap-rwanda" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Rwanda</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Rwanda" target="_blank">Music/a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/rwanda/index.html" target="_blank">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/A2lHxD1ITt4" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="africamap-burundi" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Burundi</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Burundi" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks"  href="http://topics.nytimes.com/top/news/international/countriesandterritories/burundi/index.html" target="_blank">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/9HhPbeRp7SQ" frameborder="0" allowfullscreen></iframe>
+
+</div>
+
+<div id="africamap-drc" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center; line-height: 20px">Democratic Republic of Congo</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_the_Democratic_Republic_of_the_Congo" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/congothedemocraticrepublicof/index.html" target="_blank">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/ebE0Fhjg36U" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="africamap-car" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center; line-height: 20px">Central African Republic</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_the_Central_African_Republic" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/centralafricanrepublic/index.html" target="_blank">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/yKLxFmnYO_I" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="africamap-cameroon" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Cameroon</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Cameroon" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/cameroon/index.html" target="_blank">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/muuKa9o-yvk" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="africamap-chad" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Chad</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Chad" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/chad/index.html" target="_blank">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/S-J57DVIpdo?list=PLD1584E774F7F0B45" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="africamap-niger" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Niger</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Niger" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/niger/index.html" target="_blank">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/0kZ3eU0UBC4" frameborder="0" allowfullscreen></iframe>
+
+</div>
+
+<div id="africamap-mali" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Mali</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Mali" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/mali/index.html" target="_blank">NYT Topics</a>
+
+         <iframe class="youtubevideos" src="https://www.youtube.com/embed/pXFr_f4sIGY?list=PLi6l9DfrBdjnVuzHRgpeKSdSddZylZNcI" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="africamap-mauritania" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Mauritania</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Mauritania" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/mauritania/index.html" target="_blank">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/6VqBO65iRfE" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="africamap-senegal" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Senegal</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Senegal" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/senegal/index.html" target="_blank">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/qvf6OgDR71A" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="africamap-gambia" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">The Gambia</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_the_Gambia" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/gambia/index.html" target="_blank">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/qvf6OgDR71A" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="africamap-guineabissau" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center; line-height: 20px">Guinea Bissau</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Guinea-Bissau" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/guineabissau/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-guinea" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Guinea</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Guinea" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/guinea/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-liberia" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Liberia</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Liberia" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/liberia/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-sierraleone" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center; line-height: 20px">Sierra Leone</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Sierra_Leone" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/sierraleone/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-ivorycoast" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center; line-height: 20px">Ivory Coast</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Ivory_Coast" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/ivorycoast/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-ghana" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Ghana</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Ghana" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/ghana/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-burkinafaso" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center; line-height: 20px">Burkina Faso</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Burkina_Faso" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/burkinafaso/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-togo" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Togo</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Togo" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/togo/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-benin" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Benin</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="http://en.wikipedia.org/wiki/Benin" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/benin/index.html" target="_blank">NYT Topics</a>
+
+        <iframe class="youtubevideos" src="https://www.youtube.com/embed/duiyobfigfo" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="africamap-nigeria" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Nigeria</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Nigeria" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/nigeria/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-equiguinea" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center; line-height: 20px">Equitorial Guinea</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Equatorial_Guinea" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/equatorialguinea/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-gabon" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Gabon</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Gabon" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/gabon/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-congo" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Republic of the Congo</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Congo" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/congo/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-angola" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Angola</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Angola" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/angola/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-namibia" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Namibia</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Namibia" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/namibia/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-botswana" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Botswana</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Botswana" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/botswana/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-zimbabwe" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Zimbabwe</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Zimbabwe" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/zimbabwe/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-zambia" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Zambia</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Zambia" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/zambia/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-southafrica" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center; line-height: 20px">South Africa</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_South_Africa" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/southafrica/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-swaziland" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Swaziland</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Swaziland" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/swaziland/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-lesotho" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Lesotho</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Lesotho" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/lesotho/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-mozambique" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Mozambique</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Mozambique" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/mozambique/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-malawi" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Malawi</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Malawi" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/malawi/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-madagascar" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Madagascar</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Madagascar" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/madagascar/index.html" target="_blank">NYT Topics</a>
+</div>
+
+<div id="africamap-tanzania" class="tooltip-content">
+
+        <img class="flagimages" src="images/african_continent_flag.gif">
+
+        <h1 style="text-align:center">Tanzania</h1>
+
+        <br>
+
+        <a class="tooltiplinks" href="https://en.wikipedia.org/wiki/Music_of_Tanzania" target="_blank">Music</a>&nbsp&nbsp&nbsp<a class="tooltiplinks" href="http://topics.nytimes.com/top/news/international/countriesandterritories/tanzania/index.html" target="_blank">NYT Topics</a>
+</div>
+
+</body>
+<br></br>
+<br></br>
+<br>
+
+
+<div id="bottom">
+<p style="font-size:small; color:gray; text-align:center;">
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Africa Drag and Drop Countries Game</span> by <a xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName" rel="cc:attributionURL">Jenny Hoffman and Dr. Timothy Jones</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+<br></br>
+This software incorporates ImageMapster, JQuery and Sweet Alert.</p></p>
+</div>
+
+
+</html>
